@@ -1,10 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miracle Max's Cafe</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my first webpage.</p>
+  <header id="top">
+    <div class="header-banner">
+      <h1>Welcome to Miracle Max's Cafe</h1>
+    </div>
+    <!-- Part 3: Navigation Bar -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#top" onclick="clearForm()">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products">
+      <h2>Menu</h2>
+      <!-- Part 2: Table Structure -->
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Bacon Sammich</td><td>$10.00</td><td>25</td></tr>
+          <tr><td>Bacon, Lettuce, Tomato Sammich</td><td>$12.50</td><td>40</td></tr>
+          <tr><td>3 Strips of Bacon</td><td>$8.75</td><td>15</td></tr>
+          <tr><td>Bacon, Lettuce, Mutton Sammich</td><td>$15.00</td><td>10</td></tr>
+          <tr><td>Side of Home Fries</td><td>$7.00</td><td>30</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        Cat ipsum dolor sit amet, cuddle no cuddle cuddle love scratch scratch, for destroy the blinds 
+        leave hair on owner's clothes. Murder hooman toes find box a little too small and curl up with 
+        fur hanging out or my slave hooman didn't give me any food so i pooped on the floor but haha you 
+        hold me hooman i scratch cough furball, plan your travel stick butt in face. Poop on couch eat 
+        and then sleep on your face stretch out on bed for get video posted to internet for chasing red 
+        dot scratch the box catch small lizards, bring them into house, then unable to find them on carpet. 
+        No, you can't close the door, i haven't decided whether or not i wanna go out meow meow sleeping 
+        in the box, knock over christmas tree. Sleeps on my head stares at hooman while pushing stuff off 
+        a table. Why use post when this sofa is here loves cheeseburgers for stand in doorway, unwilling 
+        to chose whether to stay in or go out. Stare at imaginary bug i'm bored inside, let me out i'm 
+        lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand 
+        partway in and partway out, contemplating the universe for half an hour how dare you nudge me 
+        with your foot?!?!</p>
+      <div class="about-images">
+        <img src="https://placehold.co/200x200" alt="Square Placeholder" class="square" />
+        <img src="https://placecats.com/poppy/300/200" alt="Poppy, CTO" class="rounded" />
+        <img src="https://placecats.com/louie/300/200" alt="Louie, CEO" class="rounded" />
+      </div>
+    </section>
+
+    <!-- Part 1: Form Creation -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm" onsubmit="submitMessage(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <fieldset>
+          <legend>How did you find us?</legend>
+          <ul class="radio-list">
+            <li><label><input type="radio" name="source" value="Google" required /> Google</label></li>
+            <li><label><input type="radio" name="source" value="Facebook" /> Facebook</label></li>
+            <li><label><input type="radio" name="source" value="Instagram" /> Instagram</label></li>
+            <li><label><input type="radio" name="source" value="X" /> X</label></li>
+            <li><label><input type="radio" name="source" value="LinkedIn" /> LinkedIn</label></li>
+            <li><label><input type="radio" name="source" value="Other" /> Other</label></li>
+          </ul>
+        </fieldset>        
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- For the "contact form submitted" user feedback -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <p>Message submitted, thank you!</p>
+    </div>
+  </div>
+
+  <!-- Give the user a little feedback - form submitted! - then reset form -->
+  <script>
+    function submitMessage(event) {
+      event.preventDefault();
+      const modal = document.getElementById('modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.getElementById('contactForm').reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 2500);
+    }
+
+    function clearForm() {
+      document.getElementById('contactForm').reset();
+    }
+  </script>
+
+  <!-- Force the page to load to #top so the menu doesn't cover the "Welcome" title -->
+  <script>
+    window.addEventListener('load', function () {
+      window.location.hash = '#top'; // Forces jump to #top on load
+      setTimeout(() => window.scrollTo(0, 0), 1); // Scrolls to absolute top
+    });
+  </script>
+
 </body>
 </html>
