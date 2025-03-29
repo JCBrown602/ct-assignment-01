@@ -3,7 +3,7 @@
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
 ![Responsive](https://img.shields.io/badge/Responsive-Design-success)
 ![GitHub Pages](https://img.shields.io/badge/Live-GitHub_Pages-blue?logo=github)
-![Pirate Kitty Approved™](https://img.shields.io/badge/Pirate_Kitty-Approved™-black?style=for-the-badge&logo=github&logoColor=white)
+![Pirate Kitty Approved](https://img.shields.io/badge/Pirate_Kitty-Approved™-black?style=flat&logo=github)
 
 A clean, simple, responsive web page project featuring a product table, about section, contact form, and a custom favicon that was a result of the emergent cat and pirate themes. 
 Created for Coding Temple HTML assignment.
